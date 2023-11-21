@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="base.css">
+    <title>Tu Tienda</title>
+</head>
+<body>
+
+    <nav>
+        <a onclick="cambiarPagina('login.html')">Log In</a>
+        <a onclick="cambiarPagina('signup.html')">Sign Up</a>
+        <a onclick="cambiarPagina('productos.html')">Productos</a>
+        <a onclick="cambiarPagina('mis_productos.html')">Comprados</a>
+        
+    </nav>
+
+    <!-- login.html -->
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+        <form id="login-form">
+
+            <label for="email">email:</label>
+            <input type="text" id="email" required>
+
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+
+            <button type="button" onclick="login()">Iniciar sesión</button>
+        </form>
+
+        <script>
+            function signup(){
+                window.location.href = "productos.html";
+            }
+
+            
+            function cambiarPagina(pagina){
+                window.location.href = pagina;
+            }
+    
+        </script>
+
+    </div>
+
+</body>
+</html>

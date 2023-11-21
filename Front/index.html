@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="base.css">
+    <title>Tu Tienda</title>
+</head>
+<body>
+
+    <nav>
+
+        <a onclick="cambiarPagina('login.html')">Log In</a>
+        <a onclick="cambiarPagina('signup.html')">Sign Up</a>
+        <a onclick="cambiarPagina('productos.html')">Productos</a>
+        <a onclick="cambiarPagina('mis_productos.html')">Comprados</a>
+        
+    </nav>
+
+    <h1> Welcome to MangaShop!!</h1>
+
+    
+    <script>
+        function cambiarPagina(pagina){
+            window.location.href = pagina;
+        }
+    </script>
+</body>
+</html>

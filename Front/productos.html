@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="base.css">
+    <title>Tu Tienda</title>
+</head>
+
+<body>
+
+    <nav>
+        <a onclick="cambiarPagina('login.html')">Log In</a>
+        <a onclick="cambiarPagina('signup.html')">Sign Up</a>
+        <a onclick="cambiarPagina('productos.html')">Productos</a>
+        <a onclick="cambiarPagina('mis_productos.html')">Comprados</a>
+        
+    </nav>
+
+    <!-- products.html -->
+    <div class="products-container">
+        <a onclick="cargarProductos()">Listar productos</a>
+    </div>
+
+    <script>
+        function cambiarPagina(pagina){
+            window.location.href = pagina;
+        }
+
+        function cargarProductos() {
+            fetch('http://0.0.0.0:8000/secproductos/producto')
+              .then(response => response.json())
+              .then(data => {
+                // Procesa los datos recibidos desde la API
+                console.log(data);
+              })
+
+
+        }
+
+        function mostrarProductos(productos) {
+            const listaProductos = document.getElementById('listaProductos');
+            listaProductos.innerHTML = '';  // Limpiar la lista antes de agregar nuevos productos
+
+            productos.forEach(producto => {
+                const divProducto = document.createElement('div');
+                divProducto.classList.add('product');
+
+                const img = document.createElement('img');
+                img.src = producto.imagen;  // Ajusta esto según la estructura de tus datos
+                img.alt = producto.nombre;  // Ajusta esto según la estructura de tus datos
+
+                const nombreProducto = document.createElement('p');
+                nombreProducto.textContent = `Nombre del Producto: ${producto.nombre}`;
+
+                const precioProducto = document.createElement('p');
+                precioProducto.textContent = `Precio: $${producto.precio}`;
+
+                const btnAgregar = document.createElement('button');
+                btnAgregar.textContent = 'Agregar al carrito';
+                btnAgregar.onclick = () => agregarAlCarrito(producto.id);  // Ajusta esto según la estructura de tus datos
+
+                divProducto.appendChild(img);
+                divProducto.appendChild(nombreProducto);
+                divProducto.appendChild(precioProducto);
+                divProducto.appendChild(btnAgregar);
+
+                listaProductos.appendChild(divProducto);
+            });
+        }
+    </script>
+</body>
+</html>

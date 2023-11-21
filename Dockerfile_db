@@ -1,0 +1,7 @@
+# Usa una imagen base de MySQL
+FROM mysql:latest
+
+# Configura las variables de entorno para la base de datos (ajusta según tus necesidades)
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=mi_basededatos
+
